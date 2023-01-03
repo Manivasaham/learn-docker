@@ -1,0 +1,34 @@
+
+docker run -d --rm --name <meaningful-name> <image-id>
+the above command run in detach mode as will as once the container stopped --rm will remove the container
+
+when the container is running 
+docker exec <container-id> or <container-name> cat /app/simple.py
+where /app/simple.py is WORKDIR when we created this Dockerfile
+to change the file or do some task use this docker exec
+
+docker run -ai containerid	                Run the stopped container	
+docker run -it --name mycontainer ubuntu sh	Run the ubuntu container named mycontainer	
+docker commit mycontainer mynewubuntu	        Create the image from the container(my container) image name mynewubuntu	
+docker run -it ubuntu /bin/bash	                Run the ubuntu image start with bash	
+docker rmi imageid	                        Remove images	
+Docker rm contanier id	                        Remove containers	
+Docker ps
+Docker ps -a
+docker ps -a -q
+docker rm `docker ps -a -q`
+Docker inspect <container ID>
+-d -p	                                        Detach mode &  publish	
+docker exec -it containerid bash	        Going into container	
+
+docker run -it --rm --entrypoint /bin/sh <image-name> change the entrypoint jsut to go insde the container
+
+docker run --rm --name nginx_webserver --mount type=bind,source=/opt/nginx/html,target=/usr/share/nginx/html -p 8082:80 -d nginxix	
+Source folder you should create 
+Destination is available 
+
+docker run -t -d -p 8081:80 -v /opt/nginx/html:/var/share/nginx/html --name web_server_nginx nginx	
+Source folder(-v) you should create 
+Destination is available 	
+how to mount local drive in to docker container usign bind mount
+
